@@ -1,5 +1,5 @@
 <?php
-
+//threadsテーブル
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->softDeletes(); //deleted_at作成
             $table->string('upload_image', 300); //添付画像
             $table->string('upload_URL', 300); //添付URL
+            $table->foreignId('user_id')->constrained('users');//外部キーusers
         });
     }
 
