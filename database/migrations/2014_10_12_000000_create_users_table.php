@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name'); //ユーザー名
             $table->string('email')->unique(); //メアド
             $table->string('password'); //パスワード
-            $table->string('display_name'); //表示名
+            $table->string('display_name')->nullable(); //表示名
             $table->timestamp('last_login_at'); //最終ログイン日
             $table->timestamps(); //created_at,updated_atを作成
         });

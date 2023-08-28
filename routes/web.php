@@ -1,17 +1,20 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::get('/', function(){
+    return view('posts/index');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::controller(PostController::class)->middleware(['auth'])->group(function(){
+Route::controller(ThreadController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
     Route::post('/posts', 'store')->name('store');
     Route::get('/posts/create', 'create')->name('create');

@@ -1,5 +1,5 @@
 <?php
-//likesテーブル
+//中間テーブル
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('likes', function (Blueprint $table) {
-            $table->id(); //主キー
-            $table->foreignId('user_id')->constrained('users'); //外部キーusers
+        Schema::create('category_thread', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('thread_id')->constrained('threads'); //外部キーthreads
-            $table->boolean('b'); //真偽値
+            $table->foreignId('category_id')->constrained('categories'); //外部キーcategories
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('catagory_thread');
     }
 };
