@@ -2,24 +2,35 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Create Thread</title>
+        
+        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
     </head>
     <body>
-        <h1>Blog Name</h1>
-        <form action="/posts" method="POST">
+        <h3>スレッド作成</h3>
+        <form action="{{ route('store_thread') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="title">
-                <h2>Title</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
-                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
-            </div>
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
-            </div>
-            <input type="submit" value="保存"/>
-        </form>
-        <div class="back">[<a href="/">back</a>]</div>
+            <label for="title">タイトル:</label>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="name">表示名:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="content">本文:</label><br>
+            <textarea id="content" name="content" rows="4" required></textarea><br>
+
+            <label for="attachment">添付ファイル:</label>
+            <input type="file" id="attachment" name="attachment"><br>
+
+            <label for="attachment_url">添付URL:</label>
+            <input type="text" id="attachment_url" name="attachment_url"><br>
+
+            <label for="delete_key">削除キー:</label>
+            <input type="password" id="delete_key" name="delete_key" required><br>
+
+            <button type="submit">スレッド作成</button>
     </body>
 </html>

@@ -5,10 +5,10 @@ use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function(){
-    return view('posts/index');
-});
+Route::get('/theads/create',[ThreadController::class,'create']);
+Route::post('threads{thread}',[ThreadController::class,'show']);
+    
+Route::post('/store-thread', 'ThreadController@store')->name('store_thread');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -16,12 +16,12 @@ Route::get('/dashboard', function () {
 
 Route::controller(ThreadController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
-    Route::post('/posts', 'store')->name('store');
-    Route::get('/posts/create', 'create')->name('create');
-    Route::get('/posts/{post}', 'show')->name('show');
-    Route::put('/posts/{post}', 'update')->name('update');
-    Route::delete('/posts/{post}', 'delete')->name('delete');
-    Route::get('/posts/{post}/edit', 'edit')->name('edit');
+    Route::post('/threads', 'store')->name('store');
+    Route::get('/threads/create', 'create')->name('create');
+    Route::get('/threads/{thread}', 'show')->name('show');
+    Route::put('/threads/{thread}', 'update')->name('update');
+    Route::delete('/threads/{thread}', 'delete')->name('delete');
+    Route::get('/threads/{thread}/edit', 'edit')->name('edit');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
