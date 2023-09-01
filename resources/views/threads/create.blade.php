@@ -20,8 +20,14 @@
             <input type="text" id="name" name="name" required><br>
 
             <label for="content">本文:</label><br>
-            <textarea id="content" name="content" rows="4" required></textarea><br>
-
+            <textarea id="content" name="content" rows="4" required></textarea><br>　<!-- カリキュラム18のように入れ子構造にしてidはいらない,nameとplaceholderをつくる -->
+            
+            <label for="start_date">開催日:</label>
+            <input type="date" id="start_date" name="start_date" required><br>
+            
+            <label for="end_date">終了日:</label>
+            <input type="date" id="end_date" name="end_date" required><br>
+            
             <label for="attachment">添付ファイル:</label>
             <input type="file" id="attachment" name="attachment"><br>
 

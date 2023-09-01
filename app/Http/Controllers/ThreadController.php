@@ -11,4 +11,8 @@ class ThreadController extends Controller
     {
         return view('threads.create')->with(['threads' => $thread->get()]);
     }
+    public function store(Request $request)
+    {
+        return redirect()->route('threads.show',['id'=>$ThreadId]);　//fillを使って保存して、thread.phpにfillableを設定して、他のphpにも
+    }
 }
