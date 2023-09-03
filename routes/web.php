@@ -15,7 +15,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(ThreadController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'index')->name('index');
+    Route::get('/', 'create')->name('create');
     Route::post('/threads', 'store')->name('store');
     Route::get('/threads/create', 'create')->name('create');
     Route::get('/threads/{thread}', 'show')->name('show');

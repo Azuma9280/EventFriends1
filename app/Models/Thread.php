@@ -9,6 +9,15 @@ class Thread extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+            'title',
+            'name',
+            'content',
+            'upload_image',
+            'upload_url',
+            'delete_key',
+        ];
+    
      public function users()
     {
         return $this->belongsToMany(User::class);
