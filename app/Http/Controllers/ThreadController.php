@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Thread;
-
+use Illuminate\Http\Request;
+use App\Http\Requests\ThreadRequest;
+    
 class ThreadController extends Controller
 {
-    public function index(Thread $thread)
+    public function create(Thread $thread)
     {
         return view('threads.create')->with(['threads' => $thread->get()]);
     }
-    public function store(Request $request)
+    public function store(ThreadRequest $request,Thread $thread)
     {
-        return redirect()->route('threads.show',['id'=>$ThreadId]);　//fillを使って保存して、thread.phpにfillableを設定して、他のphpにも
+        $input = $request['thread'];
+        $post->fill($input)->save();
+        return redirect()->route('show');
     }
 }
