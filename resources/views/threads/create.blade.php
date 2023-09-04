@@ -11,13 +11,10 @@
     </head>
     <body>
         <h3>スレッド作成</h3>
-        <form action="{{ route('store_thread') }}" method="post" enctype="multipart/form-data">
+        <form action="/threads" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="title">タイトル:</label>
             <input type="text"  name="thread[title]" placeholder="タイトル" required><br>
-
-            <label for="name">表示名:</label>
-            <input type="text"  name="user[display_name]" placeholder="お名前" required><br>
 
             <label for="content">本文:</label><br>
             <textarea  name="thread[content]" rows="4" placeholder="内容" required></textarea><br>　<!-- カリキュラム18のように入れ子構造にしてidはいらない,nameとplaceholderをつくる -->
@@ -37,6 +34,7 @@
             <label for="delete_key">削除キー:</label>
             <input type="password"  name="thread[delete_key]" placeholder="12345"required><br>
 
-            <button type="submit">スレッド作成</button>
+            <input type="submit" value="スレッド作成"/> <!-- Modelsにあるphpをコマンドで作り直す -->
+        </form>
     </body>
 </html>

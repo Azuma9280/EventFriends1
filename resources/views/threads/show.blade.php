@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>作成したスレッド</title>
+        <title>作成したスレッドとコメント作成欄</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+         <!-- threadの入力したが表示されるようにしたい -->
         <h3>コメント作成</h3>
-        <form action="{{ route('store_comment') }}" method="post" enctype="multipart/form-data">
+        <form action="/" method="post" enctype="multipart/form-data">  <!-- "/"のところでpostメソッドを指定してそれをweb.phpでCOntorollerに与えてルーティングする -->
             @csrf
             <label for="name">表示名:</label>
             <input type="text"  name="user[display_name]" placeholder="お名前" required><br>
@@ -23,6 +24,7 @@
             <label for="attachment_url">添付URL:</label>
             <input type="text"  name="thread[upload_url]" placeholder="イベントのホームページ等"><br>
             
-            <button type="submit">コメント作成</button>
+            <input type="submit" value="コメント作成"/>
+        </form>　　　 <!-- redirectで同じ画面を表示させるかつデータを取り直す -->
     </body>
 </html>

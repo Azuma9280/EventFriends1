@@ -5,10 +5,8 @@ use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/theads/create',[ThreadController::class,'create']);
-Route::post('threads{thread}',[ThreadController::class,'show']);
-    
-Route::post('/store-thread', 'ThreadController@store')->name('store_thread');
+Route::get('/threads/create',[ThreadController::class,'create']); //リンクをクリックするのはgetメソッド URLに表示される
+Route::post('/show',[ThreadController::class,'show']); //データの送信、更新、削除、変更はpostメソッド
 
 Route::get('/dashboard', function () {
     return view('dashboard');
