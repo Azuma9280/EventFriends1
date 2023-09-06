@@ -17,7 +17,7 @@
             <input type="text"  name="thread[title]" placeholder="タイトル" required><br>
 
             <label for="content">本文:</label><br>
-            <textarea  name="thread[content]" rows="4" placeholder="内容" required></textarea><br>　<!-- カリキュラム18のように入れ子構造にしてidはいらない,nameとplaceholderをつくる -->
+            <textarea  name="thread[content]" rows="4" placeholder="内容" required></textarea><br> <!-- カリキュラム18のように入れ子構造にしてidはいらない,nameとplaceholderをつくる -->
             
             <label for="start_date">開催日:</label>
             <input type="date"  name="eventdate[start_date]" required><br>
@@ -34,7 +34,7 @@
             <label for="delete_key">削除キー:</label>
             <input type="password"  name="thread[delete_key]" placeholder="12345"required><br>
 
-            <input type="submit" value="スレッド作成"/> <!-- Modelsにあるphpをコマンドで作り直す -->
+            <input type="submit" value="スレッド作成"/> 
         </form>
     </body>
 </html>
