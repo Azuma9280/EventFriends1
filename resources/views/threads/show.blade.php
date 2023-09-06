@@ -9,22 +9,28 @@
     </head>
     <body>
          <!-- threadの入力したが表示されるようにしたい -->
+        <h3 class="title">
+            {{ $thread->title}}
+        </h3>
+        <div class="content">
+            <div class="content__thread">
+                <h3>本文</h3>
+                <p>{{ $thread->content}}</p>
+            </div>
+        </div>
         <h3>コメント作成</h3>
         <form action="/" method="post" enctype="multipart/form-data">  <!-- "/"のところでpostメソッドを指定してそれをweb.phpでCOntorollerに与えてルーティングする -->
             @csrf
-            <label for="name">表示名:</label>
-            <input type="text"  name="user[display_name]" placeholder="お名前" required><br>
-            
             <label for="content">本文:</label><br>
             <textarea  name="comment[content]" rows="4" placeholder="内容" required></textarea><br>
             
             <label for="attachment">添付ファイル:</label>
-            <input type="file"  name="thread[upload_image]"><br>
+            <input type="file"  name="comment[upload_image]"><br>
 
             <label for="attachment_url">添付URL:</label>
-            <input type="text"  name="thread[upload_url]" placeholder="イベントのホームページ等"><br>
+            <input type="text"  name="comment[upload_url]" placeholder="イベントのホームページ等"><br>
             
             <input type="submit" value="コメント作成"/>
-        </form>　　　 <!-- redirectで同じ画面を表示させるかつデータを取り直す -->
+        </form>　　　 <!-- redirectで同じ画面を表示させるかつデータを取り直blade -->
     </body>
 </html>

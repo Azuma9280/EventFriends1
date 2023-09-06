@@ -6,6 +6,7 @@ use App\Models\Thread;
 use App\Models\Eventdate;
 use Illuminate\Http\Request;
 use App\Http\Requests\ThreadRequest;
+use Cloudinary;
     
 class ThreadController extends Controller
 {
@@ -22,7 +23,9 @@ class ThreadController extends Controller
     public function store(ThreadRequest $request,Thread $thread,Eventdate $event_date)
     {
         $input = $request['thread'];
-        //upload_imageの送信、保存　カリキュラム
+        $upload_image = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        dd($upload_image);
+        
         $thread->fill($input)->save();
         $input = $request['eventdate'];
         $input['thread_id'] = $thread->id;
