@@ -14,11 +14,13 @@
         <form action="/threads" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="title">タイトル:</label>
-            <input type="text"  name="thread[title]" placeholder="タイトル" required><br>
+            <input type="text"  name="thread[title]" placeholder="タイトル" value="{{ old('thread.title') }}"><br>
+            <p class="title__error" style="color:red">{{ $errors->first('thread.title') }}</p>
 
             <label for="content">本文:</label><br>
-            <textarea  name="thread[content]" rows="4" placeholder="内容" required></textarea><br> <!-- カリキュラム18のように入れ子構造にしてidはいらない,nameとplaceholderをつくる -->
-            
+            <textarea name="thread[content]" rows="4" placeholder="内容" value="{{ old('thread.content') }}"></textarea><br> <!-- カリキュラム18のように入れ子構造にしてidはいらない,nameとplaceholderをつくる -->
+            <p class="content__error" style="color:red">{{ $errors->first('thread.content') }}</p>
+
             <label for="start_date">開催日:</label>
             <input type="date"  name="eventdate[start_date]" required><br>
             
@@ -32,7 +34,8 @@
             <input type="text"  name="thread[upload_url]" placeholder="イベントのホームページ等"><br>
 
             <label for="delete_key">削除キー:</label>
-            <input type="password"  name="thread[delete_key]" placeholder="12345"required><br>
+            <input type="password"  name="thread[delete_key]" placeholder="12345"value="{{ old('thread.delete_key') }}"><br>
+            <p class="delete_key__error" style="color:red">{{ $errors->first('thread.delete_key') }}</p>
 
             <input type="submit" value="スレッド作成"/> 
         </form>
