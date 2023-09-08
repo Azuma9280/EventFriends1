@@ -16,11 +16,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'display_name',
+        'last_login_at',
+        'created_at',
+        'updated_at',
     ];
 
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     protected $casts = [

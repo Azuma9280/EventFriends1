@@ -18,9 +18,6 @@ Route::controller(ThreadController::class)->middleware(['auth'])->group(function
     Route::post('/threads', 'store')->name('store');
     Route::get('/threads/create', 'create')->name('create');
     Route::get('/threads/{thread}', 'show')->name('show');
-    Route::put('/threads/{thread}', 'update')->name('update');
-    Route::delete('/threads/{thread}', 'delete')->name('delete');
-    Route::get('/threads/{thread}/edit', 'edit')->name('edit');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");

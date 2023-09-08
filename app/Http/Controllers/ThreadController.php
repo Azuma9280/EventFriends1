@@ -31,7 +31,8 @@ class ThreadController extends Controller
         $input['thread_id'] = $thread->id;
         $event_date->fill($input)->save();
         
-        return redirect('/threads/' .$thread->id);
+        return view('threads.show', ['data' => $request->input('thread')]);
+        //return redirect('/threads/' .$thread->id);
     }
     
 }
