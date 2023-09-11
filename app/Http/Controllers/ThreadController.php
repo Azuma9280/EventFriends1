@@ -15,24 +15,24 @@ class ThreadController extends Controller
         return view('threads.create'); //->with(['threads' => $thread->get()]);
     }
     
-    public function show(Thread $Thread)
-    {
-        return view('threads.show')-with(['threads' => $thread]);
-    }
-    
     public function store(ThreadRequest $request,Thread $thread,Eventdate $event_date)
     {
         $input = $request['thread'];
         $upload_image = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        dd($upload_image);
+        //$input +=['upload_image'=>$upload_image];
         
         $thread->fill($input)->save();
         $input = $request['eventdate'];
         $input['thread_id'] = $thread->id;
         $event_date->fill($input)->save();
         
-        return view('threads.show', ['data' => $request->input('thread')]);
+        return redirect('threads/show');//, ['data' => $request->input('thread')]);
         //return redirect('/threads/' .$thread->id);
     }
+    public function show()
+    {
+        return view('threads.show');//-with(['threads' => $thread]);
+    }
+    
     
 }

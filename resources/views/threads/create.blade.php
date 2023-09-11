@@ -37,7 +37,7 @@
             <input type="password"  name="thread[delete_key]" placeholder="12345"value="{{ old('thread.delete_key') }}"><br>
             <p class="delete_key__error" style="color:red">{{ $errors->first('thread.delete_key') }}</p>
 
-            <input type="submit" value="スレッド作成"/> 
+            <button type="submit"  value="store">保存</button>
         </form>
     </body>
 </html>
