@@ -18,11 +18,11 @@ return new class extends Migration
             $table->timestamps(); //created_at,updated_at作成
             $table->string('title', 50); //タイトル
             $table->string('content', 500); //本文 
-            $table->integer('view'); //閲覧数
+            $table->integer('view')->nullable; //閲覧数
             $table->integer('delete_key'); //削除キー
             $table->softDeletes(); //deleted_at作成
-            $table->string('upload_image', 300); //添付画像
-            $table->string('upload_URL', 300); //添付URL
+            $table->string('upload_image', 300)->nullable(); //添付画像
+            $table->string('upload_url', 300)->nullable(); //添付URL
             $table->foreignId('user_id')->constrained('users');//外部キーusers
         });
     }

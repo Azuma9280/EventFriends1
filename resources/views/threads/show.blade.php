@@ -10,12 +10,12 @@
     <body>
          <!-- threadの入力したが表示されるようにしたい -->
         <h3 class="title">
-            {{ $thread->title}}
+             
         </h3>
         <div class="content">
             <div class="content__thread">
                 <h3>本文</h3>
-                <p>{{ $thread->content}}</p>
+               
             </div>
         </div>
         <h3>コメント作成</h3>

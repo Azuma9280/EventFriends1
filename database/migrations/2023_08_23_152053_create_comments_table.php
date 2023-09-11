@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps(); //created_at,created_at作成
             $table->string('content', 500); //本文
             $table->string('upload_image', 300)->nullable(); //添付画像
+            $table->foreignId('thread_id')->constrained('threads'); //外部キーthreads
             $table->foreignId('user_id')->constrained('users'); //外部キーusers
         });
     }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('thread_id')->constrained('threads'); //外部キーthreads
             $table->foreignId('category_id')->constrained('categories'); //外部キーcategories
+            $table->timestamps(); //created_at,created_at作成
         });
     }
 
