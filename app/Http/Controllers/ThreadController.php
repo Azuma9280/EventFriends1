@@ -9,7 +9,11 @@ use App\Http\Requests\ThreadRequest;
 use Cloudinary;
     
 class ThreadController extends Controller
-{
+{   
+    public function home(Thread $thread)
+    {
+        return view('threads.home'); //->with(['threads' => $thread->get()]);
+    }
     public function create(Thread $thread)
     {
         return view('threads.create'); //->with(['threads' => $thread->get()]);
@@ -18,9 +22,11 @@ class ThreadController extends Controller
     public function store(ThreadRequest $request,Thread $thread,Eventdate $event_date)
     {
         $input = $request['thread'];
-        $upload_image = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        //$input +=['upload_image'=>$upload_image];
-        
+        if ($request->file('image')){
+            $upload_image = Cloudinary::upload($request->file('upload_image')->getRealPath())->getSecurePath();
+            $input += ['upload_image'=>$upload_image];
+        }
+        $input += ['user_id' => Auth::id()];
         $thread->fill($input)->save();
         $input = $request['eventdate'];
         $input['thread_id'] = $thread->id;
