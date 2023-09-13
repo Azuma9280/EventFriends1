@@ -13,8 +13,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(ThreadController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'create')->name('create');
-    Route::post('/threads', 'store')->name('store');
+    //Route::get('/', 'create')->name('create');
+    Route::get('/home','home')->name('home');
+    Route::post('/threads/store', 'store')->name('store');
     Route::get('/threads/create', 'create')->name('create');
     Route::get('/threads/show', 'show')->name('show');
 });
