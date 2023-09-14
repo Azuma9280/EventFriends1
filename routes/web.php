@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/threads/create',[ThreadController::class,'create']); //リンクをクリックするのはgetメソッド URLに表示される
@@ -14,10 +15,13 @@ Route::get('/dashboard', function () {
 
 Route::controller(ThreadController::class)->middleware(['auth'])->group(function(){
     //Route::get('/', 'create')->name('create');
-    Route::get('/home','home')->name('home');
     Route::post('/threads/store', 'store')->name('store');
     Route::get('/threads/create', 'create')->name('create');
     Route::get('/threads/show', 'show')->name('show');
+});
+
+Route::controller(HomeController::class)->middleware(['auth'])->group(function(){
+    Route::get('/home','home')->name('home');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");

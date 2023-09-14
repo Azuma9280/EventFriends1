@@ -16,6 +16,7 @@ class Thread extends Model
             'upload_image',
             'upload_url',
             'delete_key',
+            'view'
         ];
     
      public function users()
