@@ -10,10 +10,6 @@ use Cloudinary;
     
 class ThreadController extends Controller
 {   
-    public function home(Thread $thread)
-    {
-        return view('threads.home'); //->with(['threads' => $thread->get()]);
-    }
     public function create(Thread $thread)
     {
         return view('threads.create'); //->with(['threads' => $thread->get()]);
