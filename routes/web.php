@@ -22,6 +22,7 @@ Route::controller(ThreadController::class)->middleware(['auth'])->group(function
 
 Route::controller(HomeController::class)->middleware(['auth'])->group(function(){
     Route::get('/home','home')->name('home');
+    Route::get('/thread/{thread}','submit')->name('submit');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
