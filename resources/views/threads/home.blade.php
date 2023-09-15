@@ -9,36 +9,27 @@
     <body>
         <h3>人気のイベント</h3>
         <!-- viewのカウントが大きい順3,5個 -->
-            @foreach ($threads_view as $threads)
-                @foreach($threads as $thread)
+            @foreach ($threads_view as $thread)
                     <!--<div style='border:solid 1px; margin-bottom: 10px;'>-->
-                   
                     <p>
                         <a href="/thread/{{ $thread->id }}">{{ $thread->title }}</a>
                     </p>
-                @endforeach
             @endforeach
         <h3>今日のイベント</h3>
         <!-- dateが今日と一致する中でのviewのカウントが大きい順3,5個 -->
-            @foreach ($threads_today_view as $threads)
-                @foreach($threads as $thread)
+            @foreach ($threads_today_view as $thread)
                     <!--<div style='border:solid 1px; margin-bottom: 10px;'>-->
-                    <h2>{{ $thread->view }}</h2>
                     <p>
                         <a href="/thread/{{ $thread->id }}">{{ $thread->title }}</a>
                     </p>
-                @endforeach
             @endforeach
         <h3>予定されているイベント</h3>
         <!-- dateが先1か月でviewのカウントが大きい順3,5個 -->
-            @foreach ($threads_view as $threads)
-                @foreach($threads as $thread)
+            @foreach ($threads_future_view as $thread)
                     <!--<div style='border:solid 1px; margin-bottom: 10px;'>-->
-                    <h2>{{ $thread->view }}</h2>
                     <p>
                         <a href="/thread/{{ $thread->id }}">{{ $thread->title }}</a>
                     </p>
-                @endforeach
             @endforeach
         
         <div class='rule__title'>
