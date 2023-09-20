@@ -6,6 +6,7 @@
         <title>作成したスレッドとコメント作成欄</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.css') }}">
     </head>
     <body>
          <!-- threadの入力したが表示されるようにしたい -->
@@ -19,7 +20,7 @@
             </div>
         </div>
         <h3>コメント作成</h3>
-        <form action="/" method="post" enctype="multipart/form-data">  <!-- "/"のところでpostメソッドを指定してそれをweb.phpでCOntorollerに与えてルーティングする -->
+        <form action="/" method="post" enctype="multipart/form-data">  <!-- "/"のところでpostメソッドを指定してそれをweb.phpでContorollerに与えてルーティングする -->
             @csrf
             <label for="content">本文:</label><br>
             <textarea  name="comment[content]" rows="4" placeholder="内容" required></textarea><br>
