@@ -1,0 +1,33 @@
+
+body {
+    background-color:#FEDCBD;
+}
+.main {
+    position:absolute;
+    top:0px;
+    right:50%;
+    color:#000000;
+}
+.rule__title {
+    position:absolute;
+    top:0px;
+    right:400px;
+    font-size:14px;
+}
+.rule__body {
+    position:absolute;
+    top:30px;
+    right:20px;
+}
+.footer {
+    position:absolute;
+    bottom:30px;
+    right:50%;
+}
+.title{
+    float:left;
+    margin-right:10px;
+}
+.view {
+    float:left;
+}

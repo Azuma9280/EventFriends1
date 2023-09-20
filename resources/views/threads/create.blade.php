@@ -7,6 +7,7 @@
         <title>Create Thread</title>
         
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.css') }}">
 
     </head>
     <body>
@@ -43,5 +44,8 @@
 
             <button type="submit"  value="store">スレッド作成</button>
         </form>
+        <div class="footer">
+            <a href="/dashboard">戻る</a>
+        </div>
     </body>
 </html>
