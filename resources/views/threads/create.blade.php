@@ -44,5 +44,8 @@
 
             <button type="submit"  value="store">スレッド作成</button>
         </form>
+        <div class="footer">
+            <a href="/dashboard">戻る</a>
+        </div>
     </body>
 </html>

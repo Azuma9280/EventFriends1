@@ -19,3 +19,15 @@ body {
     top:30px;
     right:20px;
 }
+.footer {
+    position:absolute;
+    bottom:30px;
+    right:50%;
+}
+.title{
+    float:left;
+    margin-right:10px;
+}
+.view {
+    float:left;
+}

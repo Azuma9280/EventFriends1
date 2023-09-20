@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Thread;
+use App\Models\Eventdate;
 use Illuminate\Http\Request;
 use Carbon\carbon;
 
@@ -17,11 +18,11 @@ class HomeController extends Controller
         
         return view('/threads.home')->with(['threads_view' => $threads_view,'threads_today_view' => $threads_today_view,'threads_future_view' => $threads_future_view]);
     }
-        public function submit(Request $request, Thread $thread)
+        public function submit(Request $request, Thread $thread, Eventdate $eventdate)
     {
-        //$thread->view = $thread->view+1
-        //$thread->save();
-        return view('thread/submit')->with(['thread' => $thread]);
+        $thread->view = $thread->view+1;
+        $thread->save();
+        return view('threads/show')->with(['thread' => $thread,'eventdate' => $eventdate]);
     }
     //end_dateからstart_dateを引いて、引いた数だけforeachを回してtodayという要素を追加して一致したものだけを取ってきて並べ替えをする。
     
