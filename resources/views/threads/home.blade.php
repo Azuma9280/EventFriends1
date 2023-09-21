@@ -8,6 +8,23 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.css') }}">
     </head>
     <body>
+        <div class='side_search'>
+            <h3>カテゴリー一覧</h3>
+            <form action=" {{route('thread.index') }}" method="GET">
+                
+            @csrf
+            
+                <input type="text" name="keyword">
+                <input type="submit" value="検索">
+            </form>
+        </div>
+        <div class='side_category'>
+                @foreach ($categories as $category)
+                        <p>
+                            <a href="/category/{{ $category->id }}">{{ $category->name }}</a>
+                        </p>
+                @endforeach
+        </div>
         <div class='main'>
             <h3>人気のイベント</h3>
             <!-- viewのカウントが大きい順3,5個 -->

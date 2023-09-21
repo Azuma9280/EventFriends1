@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('eventdates', function (Blueprint $table) {
             $table->id(); //主キー
-            $table->date('start_date')->nullable(); //イベント開催日
-            $table->date('end_date')->nullable(); //イベント終了日
-            $table->date('duaring')->nullable(); //イベント開催期間　複数日
+            $table->date('date')->nullable(); //イベント期間
             $table->foreignId('thread_id')->constrained('threads'); //外部キーthreads
         });
     }
