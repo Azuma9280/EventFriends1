@@ -19,7 +19,7 @@
             
         </div>
         <h3>コメント作成</h3>
-        <form action="/" method="post" enctype="multipart/form-data">  <!-- "/"のところでpostメソッドを指定してそれをweb.phpでContorollerに与えてルーティングする -->
+        <form action="/" method="post" enctype="multipart/form-data">  
             @csrf
             <label for="content">コメント:</label><br>
             <textarea  name="comment[content]" rows="4" placeholder="内容" required></textarea><br>
@@ -31,7 +31,7 @@
             <input type="text"  name="comment[upload_url]" placeholder="イベントのホームページ等"><br>
             
             <input type="submit" value="コメント作成"/>
-        </form>　　　 <!-- redirectで同じ画面を表示させるかつデータを取り直blade -->
+        </form>　　　 <!-- redirectで同じ画面を表示させるかつデータを取り直しblade、コメントが下に表示されていく様子 -->
         <div class="footer">
             <a href="/home">戻る</a>
         </div>

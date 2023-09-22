@@ -15,9 +15,10 @@ class HomeController extends Controller
         $threads_view = Thread::orderBy('view','desc')->take(3)->get();
         //dd($threads_view);
         $today = date("Y-m-d");
-        
-        $threads_today_view = Eventdate::where('view','desc')->get();//duringに登録されている日に限定したのちにviewを降順に3つ並べる
-        $threads_future_view = Eventdate::where('view','desc')->get();//duringが先1か月に限定したのちにviewを降順に並べる
+        $carbontoday = Carbon::parse($today);
+        $today30 = $carbontoday->addMonth();
+        $threads_today_view = Eventdate::where('date', '=', $today)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();//dateに登録されている日に限定したのちにviewを降順に3つ並べる
+        $threads_future_view = Eventdate::where('date', '=', $today30)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();//dateが先1か月に限定したのちにviewを降順に並べる
         
         return view('/threads.home')->with(['threads_view' => $threads_view,'threads_today_view' => $threads_today_view,'threads_future_view' => $threads_future_view,'categories' => $category->get()]);
     }
@@ -28,6 +29,11 @@ class HomeController extends Controller
         $thread->save();
         return view('threads/show')->with(['thread' => $thread,'eventdate' => $eventdate]);
         //end_dateからstart_dateを引いて、引いた数だけforeachを回してtodayという要素を追加して一致したものだけを取ってきて並べ替えをする。
+    }
+    
+    public function category(Category $category)
+    {
+        return view('threads/category')->with(['categories' => $category->get()]);
     }
     
 }

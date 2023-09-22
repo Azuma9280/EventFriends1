@@ -21,13 +21,14 @@
         <div class='side_category'>
                 @foreach ($categories as $category)
                         <p>
-                            <a href="/">{{ $category->name }}</a>
+                            <a href="/category/{{ $category->id }}">{{ $category->name }}</a>
                         </p>
                 @endforeach
         </div>
         <div class='category'>
-            <h3 class="name">{{ $category->name }}</h3>
+            <h3 class="name">{{ $category->name }}</h3> <!-- category/idごとに変わるnameを表示させたい、かつthread_idにcategory_idがついてるからそれを何件か表示させたい -->
         </div>
+        
         <div class="footer">
             <a href="/home">戻る</a>
         </div>
