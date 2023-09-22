@@ -19,21 +19,79 @@ class EventdateSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('eventdates')->truncate();
         DB::table('eventdates')->insert([
-            'start_date' => '2023-09-09',
-            'end_date' => '2023-09-15',
-            
+            'date' => '2023-09-09',
             'thread_id' => 1,
         ]);
         DB::table('eventdates')->insert([
-            'start_date' => '2023-09-11',
-            'end_date' => '2023-09-11',
-            
+            'date' => '2023-09-10',
+            'thread_id' => 1,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-11',
+            'thread_id' => 1,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-12',
+            'thread_id' => 1,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-13',
+            'thread_id' => 1,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-14',
+            'thread_id' => 1,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-15',
+            'thread_id' => 1,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-22',
             'thread_id' => 2,
         ]);
         DB::table('eventdates')->insert([
-            'start_date' => '2023-09-18',
-            'end_date' => '2023-09-25',
-            
+            'date' => '2023-09-23',
+            'thread_id' => 2,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-24',
+            'thread_id' => 2,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-09-25',
+            'thread_id' => 2,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-18',
+            'thread_id' => 3,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-19',
+            'thread_id' => 3,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-20',
+            'thread_id' => 3,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-21',
+            'thread_id' => 3,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-22',
+            'thread_id' => 3,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-23',
+            'thread_id' => 3,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-24',
+            'thread_id' => 3,
+        ]);
+        DB::table('eventdates')->insert([
+            'date' => '2023-10-25',
             'thread_id' => 3,
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

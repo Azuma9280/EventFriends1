@@ -10,8 +10,9 @@ use Carbon\carbon;
 
 class CategoryController extends Controller
 {
-    public function category(Category $category)
+    public function category(Category $category )
     {
+        $category_name = Category::find($id);
         return view('threads/category')->with(['category' => $category->get()]);
     }
 }

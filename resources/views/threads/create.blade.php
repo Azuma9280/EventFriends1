@@ -12,7 +12,7 @@
     </head>
     <body>
         <h3>スレッド作成</h3>
-        <form action="/threads/store" method="POST" enctype="multipart/form-data">
+        <form action="/threads" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="title">タイトル:</label>
             <input type="text"  name="thread[title]" placeholder="タイトル" value="{{ old('thread.title') }}"><br>
@@ -45,7 +45,7 @@
             <button type="submit"  value="store">スレッド作成</button>
         </form>
         <div class="footer">
-            <a href="/dashboard">戻る</a>
+            <a href="/dashboard">戻る</a> <!-- リンクがshow.blade.phpに飛びたい -->
         </div>
     </body>
 </html>

@@ -15,19 +15,20 @@ Route::get('/dashboard', function () {
 
 Route::controller(ThreadController::class)->middleware(['auth'])->group(function(){
     //Route::get('/', 'create')->name('create');
-    Route::post('/threads/store', 'store')->name('store');
+    Route::post('/threads', 'store')->name('store');
     Route::get('/threads/create', 'create')->name('create');
-    Route::get('/threads/show', 'show')->name('show');
+    Route::get('/threads/{thread}', 'show')->name('show');
 });
 
 Route::controller(HomeController::class)->middleware(['auth'])->group(function(){
     Route::get('/home','home')->name('home');
+    Route::get('/category/{category}','category')->name('category');
     Route::get('/thread/{thread}','submit')->name('submit');
     Route::get('/','index')->name('thread.index');
 });
 
 Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){
-    Route::get('/category/{category}','category')->name('category');
+    Route::get('/threads/category','category')->name('category');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
