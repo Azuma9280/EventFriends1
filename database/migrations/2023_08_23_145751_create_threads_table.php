@@ -18,7 +18,9 @@ return new class extends Migration
             $table->timestamps(); //created_at,updated_at作成
             $table->string('title', 50); //タイトル
             $table->string('content', 500); //本文 
-            $table->integer('view')->nullable; //閲覧数
+            $table->integer('view')->default(0); //閲覧数
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->integer('delete_key'); //削除キー
             $table->softDeletes(); //deleted_at作成
             $table->string('upload_image', 300)->nullable(); //添付画像

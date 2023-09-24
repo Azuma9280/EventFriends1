@@ -40,12 +40,8 @@ class ThreadController extends Controller
             $eventdate->fill($test)->save();
         }
         
-        return redirect('threads/'.$thread->id)->with(['thread' => $thread,'eventdate' => $eventdate]);
+        return view('threads/show')->with(['thread' => $thread,'eventdate' => $eventdate]);
         //return redirect('/threads/' .$thread->id);
-    }
-    public function show()
-    {
-        return view('threads.show');//-with(['threads' => $thread]);
     }
     
     
