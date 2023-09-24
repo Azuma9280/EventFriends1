@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id(); //主キー
             $table->date('date')->nullable(); //イベント期間
             $table->foreignId('thread_id')->constrained('threads'); //外部キーthreads
+            $table->timestamps(); //updated_at,created_at
         });
     }
 

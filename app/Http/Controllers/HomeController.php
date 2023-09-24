@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $thread->view = $thread->view+1;
         $thread->save();
+        //dd($thread);
         return view('threads/show')->with(['thread' => $thread,'eventdate' => $eventdate]);
         //end_dateからstart_dateを引いて、引いた数だけforeachを回してtodayという要素を追加して一致したものだけを取ってきて並べ替えをする。
     }

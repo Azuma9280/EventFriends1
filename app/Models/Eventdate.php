@@ -10,8 +10,8 @@ class Eventdate extends Model
     use HasFactory;
     
     protected $fillable = [
-            'start_date',
-            'end_date'
+            'date',
+            'thread_id'
         ];
     
     public function thread()

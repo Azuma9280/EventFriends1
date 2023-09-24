@@ -12,7 +12,7 @@
     </head>
     <body>
         <h3>スレッド作成</h3>
-        <form action="/threads" method="POST" enctype="multipart/form-data">
+        <form action="/threads/" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="title">タイトル:</label>
             <input type="text"  name="thread[title]" placeholder="タイトル" value="{{ old('thread.title') }}"><br>
@@ -23,12 +23,12 @@
             <p class="content__error" style="color:red">{{ $errors->first('thread.content') }}</p>
 
             <label for="start_date">開催日:</label>
-            <input type="date"  name="eventdate[start_date]" value="{{ old('eventdate.start_date') }}"><br>
-            <p class="start_date__error" style="color:red">{{ $errors->first('eventdate.start_date') }}</p>
+            <input type="date"  name="thread[start_date]" value="{{ old('thread.start_date') }}"><br>
+            <p class="start_date__error" style="color:red">{{ $errors->first('thread.start_date') }}</p>
             
             <label for="end_date">終了日:</label>
-            <input type="date"  name="eventdate[end_date]" value="{{ old('eventdate.end_date') }}"><br>
-            <p class="end_date__error" style="color:red">{{ $errors->first('eventdate.end_date') }}</p>
+            <input type="date"  name="thread[end_date]" value="{{ old('thread.end_date') }}"><br>
+            <p class="end_date__error" style="color:red">{{ $errors->first('thread.end_date') }}</p>
             
             <label for="attachment">添付ファイル:</label>
             <input type="file"  name="thread[upload_image]" value="{{ old('thread.upload_image') }}"><br>
