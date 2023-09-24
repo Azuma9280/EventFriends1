@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->id(); //主キー
-            $table->timestamps(); //created_at,updated_at作成
+            $table->timestamps(); //created_at,updated_at
             $table->string('title', 50); //タイトル
             $table->string('content', 500); //本文 
             $table->integer('view')->default(0); //閲覧数
