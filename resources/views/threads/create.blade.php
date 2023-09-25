@@ -30,9 +30,11 @@
             <input type="date"  name="thread[end_date]" value="{{ old('thread.end_date') }}"><br>
             <p class="end_date__error" style="color:red">{{ $errors->first('thread.end_date') }}</p>
             
+            <div class="image">
             <label for="attachment">添付ファイル:</label>
-            <input type="file"  name="thread[upload_image]" value="{{ old('thread.upload_image') }}"><br>
-            <p class="upload_image__error" style="color:red">{{ $errors->first('thread.upload_image') }}</p>
+            <input type="file"  name="image" value="{{ old('image') }}"><br>
+            <p class="image__error" style="color:red">{{ $errors->first('image') }}</p>
+            </div>
 
             <label for="attachment_url">添付URL:</label>
             <input type="text"  name="thread[upload_url]" placeholder="イベントのホームページ等" value="{{ old('thread.upload_url') }}"><br>

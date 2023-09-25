@@ -7,18 +7,21 @@ use App\Models\Eventdate;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Carbon\carbon;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function home(Category $category)
     {
-        $threads_view = Thread::orderBy('view','desc')->take(3)->get();
+        $threads_view = Thread::orderBy('view','desc')->take(10)->get();
         //dd($threads_view);
         $today = date("Y-m-d");
         $carbontoday = Carbon::parse($today);
         $today30 = $carbontoday->addMonth();
-        $threads_today_view = Eventdate::where('date', '=', $today)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();//dateに登録されている日に限定したのちにviewを降順に3つ並べる
-        $threads_future_view = Eventdate::where('date', '=', $today30)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();//dateが先1か月に限定したのちにviewを降順に並べる
+        $threads_today_view = DB::table('eventdates')->join('threads','eventdates.thread_id', '=', 'thread_id')->where('eventdates.date', '=', $today)->orderBy('threads.view','desc')->take(3)->get();
+        //$threads_today_view = Eventdate::where('date', '=', $today)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();dateに登録されている日に限定したのちにviewを降順に3つ並べる
+        $threads_future_view = DB::table('eventdates')->join('threads','eventdates.thread_id', '=', 'thread_id')->where('eventdates.date', '=', $today30)->orderBy('threads.view','desc')->take(3)->get();
+        //$threads_future_view = Eventdate::where('date', '=', $today30)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();//dateが先1か月に限定したのちにviewを降順に並べる
         
         return view('/threads.home')->with(['threads_view' => $threads_view,'threads_today_view' => $threads_today_view,'threads_future_view' => $threads_future_view,'categories' => $category->get()]);
     }

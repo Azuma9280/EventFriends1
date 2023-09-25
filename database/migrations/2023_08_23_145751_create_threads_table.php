@@ -23,8 +23,8 @@ return new class extends Migration
             $table->date('end_date')->nullable();
             $table->integer('delete_key'); //削除キー
             $table->softDeletes(); //deleted_at作成
-            $table->string('upload_image', 300)->nullable(); //添付画像
-            $table->string('upload_url', 300)->nullable(); //添付URL
+            $table->string('upload_image')->nullable(); //添付画像
+            $table->string('upload_url',)->nullable(); //添付URL
             $table->foreignId('user_id')->constrained('users');//外部キーusers
         });
     }
