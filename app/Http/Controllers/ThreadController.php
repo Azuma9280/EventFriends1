@@ -20,21 +20,24 @@ class ThreadController extends Controller
     public function store(Request $request,Thread $thread)
     {
         $input = $request['thread'];
-        
-        if ($request->file('image')){
-            $upload_image = Cloudinary::upload($request->file('upload_image')->getRealPath())->getSecurePath();
-            $input += ['upload_image'=>$upload_image];
+        if($request->file('image')){
+            $upload_image = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            $input +=['upload_image' => $upload_image];
         }
+        //if ($request->file('thread[upload_image]')){
+            //$upload_image = Cloudinary::upload($request->file('thread[upload_image]')->getRealPath())->getSecurePath();
+           //$input += ['thread[upload_image]'=>$upload_image];
+        //}
         $input['user_id'] = Auth::id();
-        $thread->fill($input)->save();
-        $input = $request['eventdate']; //下にデータが残らない
-        
         $test['thread_id'] = $thread->id;
         $toDate = Carbon::parse($input['start_date']);
         $fromDate = Carbon::parse($input['end_date']);
         $count = $toDate->diffInDays($fromDate);
-        //dd($count);
         $dt = new Carbon($input['start_date']);
+        
+        $thread->fill($input)->save();
+        $input = $request['eventdate']; //下にデータが残らない
+        $test['thread_id'] = $thread->id;
         for($i = 0; $i<= $count; $i++)
         {
             

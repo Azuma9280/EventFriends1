@@ -15,7 +15,11 @@
             <h3 class="start">{{ $thread->start_date }}</h3>
             <h3 class="end">{{ $thread->end_date }}</h3>
             <h3 class="url">{{ $thread->upload_url }}</h3>
-            <h3 class="image">{{ $thread->upload_image }}</h3>
+            @if($thread->upload_image)
+            <div class="image">
+                <img src="{{ $thread->upload_image }}" alt="画像が読み込めません。"/>
+            </div>
+            @endif
             <h3 class="content">{{ $thread->content }}</h3>
             
         </div>
