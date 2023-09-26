@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShowController;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/threads/create',[ThreadController::class,'create']); //リンクをクリックするのはgetメソッド URLに表示される
@@ -29,6 +30,10 @@ Route::controller(HomeController::class)->middleware(['auth'])->group(function()
 
 Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){
     Route::get('/threads/category','category')->name('category');
+});
+
+Route::controller(ShowController::class)->middleware(['auth'])->group(function(){
+    Route::post('/comments/','comment_store')->name('comment_store');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
