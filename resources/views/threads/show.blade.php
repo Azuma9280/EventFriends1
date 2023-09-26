@@ -23,14 +23,26 @@
             <h3 class="content">{{ $thread->content }}</h3>
             
         </div>
+        @if($commet)
+        <div class="comment">
+            <h3 class="content">{{ $comment->content }}</h3>
+            <h3 class="url">{{ $comment->upload_url}}</h3>
+            @if($comment->upload_image)
+            <div class="image">
+                <img src="{{ $comment->upload_image }}" alt="画像が読み込めません。"/>
+            </div>
+            @endif
+        </div>
+        @endif
+        
         <h3>コメント作成</h3>
-        <form action="/" method="post" enctype="multipart/form-data">  
+        <form action="/comment/" method="post" enctype="multipart/form-data">  
             @csrf
             <label for="content">コメント:</label><br>
             <textarea  name="comment[content]" rows="4" placeholder="内容" required></textarea><br>
             
             <label for="attachment">添付ファイル:</label>
-            <input type="file"  name="comment[upload_image]"><br>
+            <input type="file"  name="image"><br>
 
             <label for="attachment_url">添付URL:</label>
             <input type="text"  name="comment[upload_url]" placeholder="イベントのホームページ等"><br>

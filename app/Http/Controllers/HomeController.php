@@ -19,14 +19,14 @@ class HomeController extends Controller
         $carbontoday = Carbon::parse($today);
         $today30 = $carbontoday->addMonth();
         $threads_today_view = DB::table('eventdates')->join('threads','eventdates.thread_id', '=', 'thread_id')->where('eventdates.date', '=', $today)->orderBy('threads.view','desc')->take(3)->get();
-        //$threads_today_view = Eventdate::where('date', '=', $today)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();dateに登録されている日に限定したのちにviewを降順に3つ並べる
+        //dateに登録されている日に限定したのちにviewを降順に3つ並べる
         $threads_future_view = DB::table('eventdates')->join('threads','eventdates.thread_id', '=', 'thread_id')->where('eventdates.date', '=', $today30)->orderBy('threads.view','desc')->take(3)->get();
-        //$threads_future_view = Eventdate::where('date', '=', $today30)->first()->Thread()->orderBy('view', 'desc')->take(3)->get();//dateが先1か月に限定したのちにviewを降順に並べる
+        //dateが先1か月に限定したのちにviewを降順に並べる
         
         return view('/threads.home')->with(['threads_view' => $threads_view,'threads_today_view' => $threads_today_view,'threads_future_view' => $threads_future_view,'categories' => $category->get()]);
     }
     
-    public function submit(Request $request, Thread $thread, Eventdate $eventdate)
+    public function submit(Request $request, Thread $thread, Eventdate $eventdate, Comment $comment)
     {
         $thread->view = $thread->view+1;
         $thread->save();
