@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShowController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
+
 
 //Route::get('/threads/create',[ThreadController::class,'create']); //リンクをクリックするのはgetメソッド URLに表示される
 //Route::post('/show',[ThreadController::class,'show']); //データの送信、更新、削除、変更はpostメソッド
@@ -33,6 +35,10 @@ Route::controller(CategoryController::class)->middleware(['auth'])->group(functi
 });
 
 Route::controller(ShowController::class)->middleware(['auth'])->group(function(){
+    Route::post('/comments/','comment_store')->name('comment_store');
+});
+
+Route::controller(CommentController::class)->middleware(['auth'])->group(function(){
     Route::post('/comments/','comment_store')->name('comment_store');
 });
 

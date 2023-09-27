@@ -13,6 +13,8 @@ class Comment extends Model
             'content',
             'upload_image',
             'upload_url',
+            'user_id',
+            'thread_id',
         ];
 
     public function thread()
