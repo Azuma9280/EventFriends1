@@ -14,29 +14,36 @@
             <h3 class="view">{{ $thread->view }}</h3>
             <h3 class="start">{{ $thread->start_date }}</h3>
             <h3 class="end">{{ $thread->end_date }}</h3>
-            <h3 class="url">{{ $thread->upload_url }}</h3>
+            <h3 class="url">
+                添付URL:<a href="{{ $thread->upload_iamge }}">{{ $thread->upload_url }}</a>
+            </h3>
             @if($thread->upload_image)
             <div class="image">
                 <img src="{{ $thread->upload_image }}" alt="画像が読み込めません。"/>
             </div>
             @endif
-            <h3 class="content">{{ $thread->content }}</h3>
+            <h3 class="content">本文:{{ $thread->content }}</h3>
             
         </div>
-        @if($commet)
+        
+        @if($thread->comments->count() > 0) <!--コメントのカウントが0の場合コメントがありませんって表示する -->
         <div class="comment">
-            <h3 class="content">{{ $comment->content }}</h3>
-            <h3 class="url">{{ $comment->upload_url}}</h3>
+            @foreach ($thread->comments as $comment)
+                <h3 class="content">{{ $comment->content }}</h3>
+                <h3 class="url">{{ $comment->upload_url}}</h3>
             @if($comment->upload_image)
             <div class="image">
                 <img src="{{ $comment->upload_image }}" alt="画像が読み込めません。"/>
             </div>
             @endif
+            @endforeach
         </div>
+        @else
+            <h3>コメントはまだありません。</h3>
         @endif
         
         <h3>コメント作成</h3>
-        <form action="/comment/" method="post" enctype="multipart/form-data">  
+        <form action="/comments/" method="post" enctype="multipart/form-data">  
             @csrf
             <label for="content">コメント:</label><br>
             <textarea  name="comment[content]" rows="4" placeholder="内容" required></textarea><br>

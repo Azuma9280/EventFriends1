@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Thread;
 use App\Models\Eventdate;
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Carbon\carbon;
 use Illuminate\Support\Facades\DB;

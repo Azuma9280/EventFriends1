@@ -7,10 +7,11 @@ use App\Models\Eventdate;
 use App\Models\Category;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Carbon\carbon;
-use Illuminate\Support\Facades\DB;;
 
-class ShowController extends Controller
+class CommentController extends Controller
 {
     public function comment_store(Request $request, Thread $thread, Comment $comment)
     {
@@ -20,10 +21,9 @@ class ShowController extends Controller
             $input +=['upload_image' => $comment_upload_image];
         }
         $input['user_id'] = Auth::id();
-        $input['thread_id'] = $thread->id; //thread_idがnullといわれる
+        $input['thread_id'] = $thread->id;
         $comment->fill($input)->save();
         
         return redirect('threads/show')->with(['thread' => $thread, 'eventdate' => $eventdate, 'comment' => $comment]);
     }
-    
 }
