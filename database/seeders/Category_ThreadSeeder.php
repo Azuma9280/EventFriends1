@@ -16,7 +16,7 @@ class Category_ThreadSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('category_thread')->truncate();
         DB::table('category_thread')->insert([
             'thread_id' => 1,
@@ -36,6 +36,6 @@ class Category_ThreadSeeder extends Seeder
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
         ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

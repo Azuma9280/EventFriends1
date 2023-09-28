@@ -16,7 +16,7 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('comments')->truncate();
         DB::table('comments')->insert([
             'content' => 'アンパンマン作ったよ',
@@ -50,6 +50,6 @@ class CommentSeeder extends Seeder
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
         ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

@@ -16,7 +16,7 @@ class EventdateSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('eventdates')->truncate();
         DB::table('eventdates')->insert([
             'date' => '2023-09-09',
@@ -94,6 +94,6 @@ class EventdateSeeder extends Seeder
             'date' => '2023-10-25',
             'thread_id' => 3,
         ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
