@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-           ThreadSeeder::class, 
-           UserSeeder::class,
-           CategorySeeder::class,
-           EventdateSeeder::class,
-           CommentSeeder::class,
-           Category_ThreadSeeder::class,
+            UserSeeder::class,
+            CategorySeeder::class,
+            ThreadSeeder::class, 
+            EventdateSeeder::class,
+            CommentSeeder::class,
+            Category_ThreadSeeder::class,
         ]);
     }
 }
