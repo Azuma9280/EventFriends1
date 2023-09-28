@@ -16,7 +16,7 @@ class ThreadSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('threads')->truncate();
         DB::table('threads')->insert([
            'title' => '雪まつり',
@@ -57,6 +57,6 @@ class ThreadSeeder extends Seeder
            'upload_url' => 'adfadsf',
            'user_id' => 2,
         ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        // DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
