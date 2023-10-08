@@ -25,7 +25,7 @@
             <h3 class="content">本文:{{ $thread->content }}</h3>
             
         </div>
-        
+        <h3 class="line">---------------------------------------------</h3>
         @if($thread->comments->count() > 0) <!--コメントのカウントが0の場合コメントがありませんって表示する -->
         <div class="comment">
             @foreach ($thread->comments as $comment)
@@ -42,9 +42,13 @@
             <h3>コメントはまだありません。</h3>
         @endif
         
+        <h3 class="line">---------------------------------------------</h3>
+        
         <h3>コメント作成</h3>
-        <form action="/comments/" method="post" enctype="multipart/form-data">  
+        <form action="{{ route('comment_store', ['thread'=> $thread->id]) }}" method="post" enctype="multipart/form-data">  
             @csrf
+            <input type="hidden" name="thread_id" value="{{ $thread->id }}">
+            
             <label for="content">コメント:</label><br>
             <textarea  name="comment[content]" rows="4" placeholder="内容" required></textarea><br>
             
@@ -54,7 +58,7 @@
             <label for="attachment_url">添付URL:</label>
             <input type="text"  name="comment[upload_url]" placeholder="イベントのホームページ等"><br>
             
-            <input type="submit" value="コメント作成"/>
+            <button type="submit"  value="store">コメント作成</button>
         </form>　　　 <!-- redirectで同じ画面を表示させるかつデータを取り直しblade、コメントが下に表示されていく様子 -->
         <div class="footer">
             <a href="/home">戻る</a>

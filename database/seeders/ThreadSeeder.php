@@ -16,7 +16,7 @@ class ThreadSeeder extends Seeder
      */
     public function run()
     {
-        // DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('threads')->truncate();
         DB::table('threads')->insert([
            'title' => '雪まつり',
@@ -26,7 +26,7 @@ class ThreadSeeder extends Seeder
            'updated_at' => new Datetime(),
            'start_date' => '2023-09-09',
            'end_date' => '2023-09-15',
-           'view' => 5,
+           'view' => 0,
            'upload_image' => 'test',
            'upload_url' => 'adfadsf',
            'user_id' => 1,
@@ -39,7 +39,7 @@ class ThreadSeeder extends Seeder
            'updated_at' => new Datetime(),
            'start_date' => '2023-09-22',
            'end_date' => '2023-09-25',          
-           'view' => 10,
+           'view' => 0,
            'upload_image' => 'test',
            'upload_url' => 'addsfadsf',
            'user_id' => 1,
@@ -52,11 +52,11 @@ class ThreadSeeder extends Seeder
            'updated_at' => new Datetime(),
            'start_date' => '2023-10-18',
            'end_date' => '2023-10-25',
-           'view' => 20,
+           'view' => 0,
            'upload_image' => 'test',
            'upload_url' => 'adfadsf',
            'user_id' => 2,
         ]);
-        // DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

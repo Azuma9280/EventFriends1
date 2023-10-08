@@ -25,26 +25,26 @@ class ThreadController extends Controller
             $input +=['upload_image' => $upload_image];
         }
         $input['user_id'] = Auth::id();
-        $test['thread_id'] = $thread->id;
+        $input['thread_id'] = $thread->id;
         $toDate = Carbon::parse($input['start_date']);
         $fromDate = Carbon::parse($input['end_date']);
         $count = $toDate->diffInDays($fromDate);
         $dt = new Carbon($input['start_date']);
         
         $thread->fill($input)->save();
-        $input = $request['eventdate']; //下にデータが残らない
-        $test['thread_id'] = $thread->id;
+        $input = $request['eventdate']; 
         for($i = 0; $i<= $count; $i++)
         {
-            
-            $test['date'] = $dt->addDays($i);
+            $input['thread_id'] = $thread->id;
+            $input['date'] = $dt->addDays($i);
             $eventdate = new Eventdate;
-            $eventdate->fill($test)->save();
+            $eventdate->fill($input)->save();
         }
         
         return view('threads/show')->with(['thread' => $thread,'eventdate' => $eventdate]);
         //return redirect('/threads/' .$thread->id);
     }
+    
     
     
 }

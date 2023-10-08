@@ -16,7 +16,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        // DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('categories')->truncate();
         DB::table('categories')->insert([
             'name' => 'お祭り',
@@ -33,7 +33,7 @@ class CategorySeeder extends Seeder
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
         ]);
-        // DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
         
     }
 }

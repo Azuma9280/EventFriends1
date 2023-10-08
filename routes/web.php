@@ -39,7 +39,7 @@ Route::controller(ShowController::class)->middleware(['auth'])->group(function()
 });
 
 Route::controller(CommentController::class)->middleware(['auth'])->group(function(){
-    Route::post('/comments/','comment_store')->name('comment_store');
+    Route::post('/comments/{thread}','comment_store')->name('comment_store');
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");

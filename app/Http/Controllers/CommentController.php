@@ -22,8 +22,10 @@ class CommentController extends Controller
         }
         $input['user_id'] = Auth::id();
         $input['thread_id'] = $thread->id;
+        
         $comment->fill($input)->save();
         
-        return redirect('threads/show')->with(['thread' => $thread, 'eventdate' => $eventdate, 'comment' => $comment]);
+        
+        return view('threads/show')->with(['thread' => $thread, 'comment' => $comment]);
     }
 }
