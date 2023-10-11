@@ -7,6 +7,35 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## INtroduction 
+EventFriendはイベント事に注目して作られたネット掲示板です。作者の趣味がオフラインイベント参加であり、イベントに参加した感想などを多くの人とシェアしたいという想いから本ページを作成しました。
+[https://eventfriend-2dec0cfe7e13.herokuapp.com/](https://eventfriend-2dec0cfe7e13.herokuapp.com/).
+
+## Features
+EventFriendを使用してできることのいくつかは次のとおりです.
+
+- スレッドの作成.
+- 人気のスレッドの確認.
+- 先1か月の人気のスレッドの確認.
+-  スレッドに対してコメントの作成.
+
+## To Be Inserted
+EventFriendにて実装予定されていることのいくつかは次のとおりです.
+
+- 自身が作成したスレッドの削除機能
+- 自身が作成したスレッドに対するコメントの削除機能
+- タグの作成とタグ付きでのスレッドの作成
+- タグによる、もしくはスレッドのタイトル、もしくはスレッド本文を参考にしたスレッド検索機能
+- フレンド機能
+- いいね機能
+- 通知機能
+- あなたへのおすすめ機能
+  
+
+
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
